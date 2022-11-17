@@ -11,12 +11,11 @@ import java.util.ArrayList;
 
 public class Solver {
 
-    ObjectMapper objectMapper;
-    ArrayNode output;
+    private ObjectMapper objectMapper;
+    private ArrayNode output;
+    private Game game;
 
-    Game game;
-
-    public Solver(ObjectMapper objectMapper, ArrayNode output, Game game) {
+    public Solver(final ObjectMapper objectMapper, final ArrayNode output, final Game game) {
         this.objectMapper = objectMapper;
         this.output = output;
         this.game = game;
