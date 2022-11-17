@@ -4,7 +4,7 @@ import fileio.CardInput;
 
 public class Sentinel extends Card {
 
-    public Sentinel(CardInput cardInput) {
+    public Sentinel(final CardInput cardInput) {
         super(cardInput);
         super.setIsBackRow(1);
     }

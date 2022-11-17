@@ -2,9 +2,6 @@ package main;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import fileio.ActionsInput;
-import fileio.DecksInput;
-import fileio.StartGameInput;
 
 import java.util.ArrayList;
 
@@ -23,6 +20,10 @@ public class Player {
         shuffleSeed = 0;
     }
 
+    /**
+     * a method that is called each new round that removes a card from the deck
+     * and puts it into the player's hand
+     */
     public void drawCard() {
         if (this.deck.size() != 0) {
             Card card = this.deck.remove(0);
@@ -30,73 +31,142 @@ public class Player {
         }
     }
 
-    public void addMana(int round) {
-        if (round <= 10)
+    /**
+     * a method that adds mana to the player based on the current round number
+     * @param round
+     */
+    public void addMana(final int round) {
+        int maxRound = 2 * 2 * 2 + 2;
+        if (round <= maxRound) {
             this.totalMana += round;
-        else
-            this.totalMana += 10;
+        } else {
+            this.totalMana += maxRound;
+        }
     }
 
-    public void placeCard(int handIdx, GameBoard gameBoard, Player player) {
+    /**
+     * a method that removes a card from the hand based on the given handIdx and puts it
+     * on the game board in the corresponding row
+     * @param handIdx
+     * @param gameBoard
+     * @param player
+     */
+    public void placeCard(final int handIdx, final GameBoard gameBoard, final Player player) {
         Card card = this.hand.remove(handIdx);
-        if (gameBoard.getPlayerTurn() == 1 && card.getIsBackRow() == 1)
+        if (gameBoard.getPlayerTurn() == 1 && card.getIsBackRow() == 1) {
             gameBoard.getRow3().add(card);
-        if (gameBoard.getPlayerTurn() == 1 && card.getIsFrontRow() == 1)
+        }
+        if (gameBoard.getPlayerTurn() == 1 && card.getIsFrontRow() == 1) {
             gameBoard.getRow2().add(card);
-        if (gameBoard.getPlayerTurn() == 2 && card.getIsFrontRow() == 1)
+        }
+        if (gameBoard.getPlayerTurn() == 2 && card.getIsFrontRow() == 1) {
             gameBoard.getRow1().add(card);
-        if (gameBoard.getPlayerTurn() == 2 && card.getIsBackRow() == 1)
+        }
+        if (gameBoard.getPlayerTurn() == 2 && card.getIsBackRow() == 1) {
             gameBoard.getRow0().add(card);
+        }
         player.setTotalMana(player.getTotalMana() - card.getMana());
     }
 
-    public void useEnvironmentCard(int handIdx, GameBoard gameBoard, Player player, int affectedRow, ObjectNode node, ArrayNode output) {
+    /**
+     * a method that calls the generic method useEnvironmentCardAbility
+     * @param handIdx
+     * @param gameBoard
+     * @param player
+     * @param affectedRow
+     * @param node
+     * @param output
+     */
+    public void useEnvironmentCard(final int handIdx, final GameBoard gameBoard,
+                                   final Player player, final int affectedRow,
+                                   final ObjectNode node, final ArrayNode output) {
         Card card = this.hand.get(handIdx);
-        int error = card.useEnvironmentCardAbility(gameBoard, player, affectedRow, node, handIdx, output);
+        int error = card.useEnvironmentCardAbility(gameBoard, player, affectedRow, node,
+                handIdx, output);
 
-        if (error != 404) {
+        if (error != -1) {
             player.setTotalMana(player.getTotalMana() - card.getMana());
             this.hand.remove(handIdx);
         }
     }
 
+    /**
+     * deck getter
+     * @return
+     */
     public ArrayList<Card> getDeck() {
         return deck;
     }
 
+    /**
+     * hand getter
+     * @return
+     */
     public ArrayList<Card> getHand() {
         return hand;
     }
 
+    /**
+     * totalMana getter
+     * @return
+     */
     public int getTotalMana() {
         return totalMana;
     }
 
+    /**
+     * hero getter
+     * @return
+     */
     public Hero getHero() {
         return hero;
     }
 
+    /**
+     * shuffleSeed getter
+     * @return
+     */
     public int getShuffleSeed() {
         return shuffleSeed;
     }
 
-    public void setDeck(ArrayList<Card> deck) {
+    /**
+     * deck setter
+     * @param deck
+     */
+    public void setDeck(final ArrayList<Card> deck) {
         this.deck = deck;
     }
 
-    public void setHand(ArrayList<Card> hand) {
+    /**
+     * hand setter
+     * @param hand
+     */
+    public void setHand(final ArrayList<Card> hand) {
         this.hand = hand;
     }
 
-    public void setTotalMana(int totalMana) {
+    /**
+     * totalMana setter
+     * @param totalMana
+     */
+    public void setTotalMana(final int totalMana) {
         this.totalMana = totalMana;
     }
 
-    public void setHero(Hero hero) {
+    /**
+     * hero setter
+     * @param hero
+     */
+    public void setHero(final Hero hero) {
         this.hero = hero;
     }
 
-    public void setShuffleSeed(int shuffleSeed) {
+    /**
+     * shuffleSeed setter
+     * @param shuffleSeed
+     */
+    public void setShuffleSeed(final int shuffleSeed) {
         this.shuffleSeed = shuffleSeed;
     }
 }

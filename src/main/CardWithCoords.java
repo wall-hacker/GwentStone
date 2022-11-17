@@ -8,40 +8,68 @@ public class CardWithCoords {
     @JsonIgnore
     private Card card;
 
-    public CardWithCoords(int x, int y, GameBoard gameBoard) {
+    public CardWithCoords(final int x, final int y, final GameBoard gameBoard) {
         this.x = x;
         this.y = y;
-        if (x == 0)
+        if (x == 0) {
             card = gameBoard.getRow0().get(y);
-        if (x == 1)
+        }
+        if (x == 1) {
             card = gameBoard.getRow1().get(y);
-        if (x == 2)
+        }
+        if (x == 2) {
             card = gameBoard.getRow2().get(y);
-        if (x == 3)
+        }
+        if (x == (1 + 2)) {
             card = gameBoard.getRow3().get(y);
+        }
     }
 
+    /**
+     * x getter
+     * @return
+     */
     public int getX() {
         return x;
     }
 
+    /**
+     * y getter
+     * @return
+     */
     public int getY() {
         return y;
     }
 
+    /**
+     * card getter
+     * @return
+     */
     public Card getCard() {
         return card;
     }
 
-    public void setX(int x) {
+    /**
+     * x setter
+     * @param x
+     */
+    public void setX(final int x) {
         this.x = x;
     }
 
-    public void setY(int y) {
+    /**
+     * y setter
+     * @param y
+     */
+    public void setY(final int y) {
         this.y = y;
     }
 
-    public void setCard(Card card) {
+    /**
+     * card setter
+     * @param card
+     */
+    public void setCard(final Card card) {
         this.card = card;
     }
 }

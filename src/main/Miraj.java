@@ -4,13 +4,17 @@ import fileio.CardInput;
 
 public class Miraj extends Card {
 
-    public Miraj(CardInput cardInput) {
+    public Miraj(final CardInput cardInput) {
         super(cardInput);
         super.setIsFrontRow(1);
     }
 
+    /**
+     * a method overriding the one in the parent class that switches an ally and enemy card healths
+     * @param attacked
+     */
     @Override
-    public void useCardAbility(CardWithCoords attacked) {
+    public void useCardAbility(final CardWithCoords attacked) {
         int myHealth = super.getHealth();
         int hisHealth = attacked.getCard().getHealth();
 
