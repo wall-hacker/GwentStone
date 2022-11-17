@@ -71,17 +71,6 @@ public final class Main {
 
         //TODO add here the entry point to your implementation
 
-        /*
-        ObjectNode c1 = objectMapper.createObjectNode();
-        ObjectNode c2 = objectMapper.createObjectNode();
-        c1.put("command", "getPula");
-        c2.put("command", c1);
-        output.add(c2);
-
-
-        Start start = new Start(inputData);
-        start.getPlayerDeck();*/
-
         Game game = new Game(objectMapper, inputData, output);
         game.start();
 

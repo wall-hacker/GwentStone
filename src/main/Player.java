@@ -2,6 +2,8 @@ package main;
 
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import main.cards.Card;
+import main.heroes.Hero;
 
 import java.util.ArrayList;
 

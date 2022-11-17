@@ -1,6 +1,7 @@
-package main;
+package main.cards;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import main.GameBoard;
 
 public class CardWithCoords {
     private int x;

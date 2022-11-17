@@ -1,6 +1,9 @@
-package main;
+package main.heroes;
 
 import fileio.CardInput;
+import main.GameBoard;
+import main.Player;
+import main.cards.Card;
 
 import java.util.ArrayList;
 

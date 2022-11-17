@@ -1,6 +1,7 @@
 package main;
 
 import fileio.StartGameInput;
+import main.cards.Card;
 
 import java.util.ArrayList;
 

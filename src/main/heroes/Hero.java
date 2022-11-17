@@ -1,9 +1,11 @@
-package main;
+package main.heroes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import fileio.CardInput;
+import main.GameBoard;
+import main.Player;
 
 import java.util.ArrayList;
 
