@@ -9,7 +9,7 @@
 ----------------------------------------------------------------
 Structure && Implementation 
 ----------------------------------------------------------------
-1)cards package:
+1] cards package:
  - The cards package contains the parent class Card which holds
 all data related to cards, all their associated methods
 (outputCard and outputCard2 add data to the json output while
@@ -24,7 +24,7 @@ on the type of card and have different effects.
 
 
 
-2)heroes package:
+2] heroes package:
  - The heros package contains the parent class Hero which holds
 all data related to heroes, all their associated methods
 (outputHero and useHeroAbility) and all thesubclasses.
@@ -35,13 +35,13 @@ effects.
 
 
 
-3)the Debug class contains all methods related to debugging
+3] the Debug class contains all methods related to debugging
 the game such as: getPlayerDeck, getCardsInHand, getPlayerHero,
 getCardsOnTable etc.
 
 
 
-4)the Game class is the main entry point of the program,
+4] the Game class is the main entry point of the program,
 the "start" method being the one which parses all the input data
 (builds the chosen decks, adds the chosen heroes, uses the given
 commands in orderd to effectively "play out" the game) and class
@@ -49,7 +49,7 @@ all subsequent methods from the other classes.
 
 
 
-5) the GameBoard class is where the cards that were played are
+5] the GameBoard class is where the cards that were played are
 stored in the form of 4 rows of cards (I used this
 implementationin order to simplify my own visualisation of the
 game instead of working with an array of arrays); this class is
@@ -58,7 +58,7 @@ are found.
 
 
 
-6) the Player class has fields that represent their deck, their
+6] the Player class has fields that represent their deck, their
 current hand, their hero and their current total mana; the 
 methods implemented in the Player class (drawCard, addMana,
 placeCard and useEnvironmentCard) all manipulate either the
@@ -67,7 +67,7 @@ based on the methods' names.
 
 
 
-7) the Solver class is something I added last minute to detur
+7] the Solver class is something I added last minute to detur
 myself from programming in a "C-like fashion"; this class
 contains so called "solver" methods that add the required data
 (including error messages) into the output nodes (for later
