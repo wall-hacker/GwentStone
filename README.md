@@ -7,6 +7,26 @@
   
 ````
 ----------------------------------------------------------------
+Description
+----------------------------------------------------------------
+This is a barebones object oriented approach to the backend of a
+fictional game named GwentStone(inspired by Gwent and HearthStone).
+The game GwentStone, played by two players, is simulated through a
+series of commands given as input. Each player receives a deck of
+cards and a hero, and executes a number of actions in his turn.
+During his turn, the player can place a card on the table, use the
+ability of one of the cards on the table, attack another card/hero,
+use an environment card from his hand, or use his hero's ability,
+as long as he has enough mana to do it. At the end of each player's
+turn, his cards are unfrozen, if necessary. When both players
+finished their turns, a new round starts, meaning both receive a
+card from their decks into their hands and mana, which starts
+from 1 and increments every round until it reaches 10. The game
+ends whenever one of the hero's health becomes 0. Since the AI can
+specify input for multiple games, each player remembers how many
+games were played and how many of them were won by him.
+
+----------------------------------------------------------------
 Structure && Implementation 
 ----------------------------------------------------------------
 1] cards package:
